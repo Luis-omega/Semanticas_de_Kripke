@@ -68,4 +68,49 @@ Vamos a preparar el terreno para probar que el sistema axiomático para S4 se co
   }
 \end{proof}
 
+Así pues, nos hace falta probar la admisibilidad de la regla de necesidad para poder afirmar que S4 cumple al menos con los axiomas de \K para logica modal. Para probar la admisibilidad, primero probaremos la regla de weakening y para ello nuestra mas poderosa aliada sera la sustitución de etiquetas definida como:
 
+\begin{align*}
+  wRo(r/l) &= wRo \, si \, l \neq w \, y l \neq o \\
+  wRo(r/w) &= rRo \, si \, w \neq o \\
+  wRo(r/o) &= wRr \, si \, w \neq o \\
+  wRw(r/w) &= rRr \\
+  w:A(r/o) &= w:A \, si \, o \neq w \\
+  w:A(r/w) &= r:A
+\end{align*}
+
+
+\begin{teo}
+  Si \Gamma \derives \Delta en S4, entonces \Gamma(o/w) \derives \Delta(o/w) también es derivable y lo es con la misma altura.
+\end{teo}
+\begin{proof}
+  Para el caso $n=0$ y si la sustitución no es vacía, los casos en que es un secuente inicial y no la regla de falso, son inmediatos así como también lo es el caso de la regla de falso.
+  
+  Para $n>0$ hay varios casos.  Primero si la ultima regla aplicada en la derivación es una proposicional distinta a falso, solo hacemos el caso para $L \land$.
+  
+  \prfsummary{
+  }{
+    \tree{L \land}{
+      w:A, \Gamma \derives \Delta
+    }{
+      w:B, \Gamma \derives \Delta
+    }{
+      w:A \land B, \Gamma \derives \Delta
+    } 
+  }
+
+  Por lo que usando la hipótesis de inducción en $A$ y $B$ y volviendo a aplicar la regla, se obtiene la conclusión deseada. Lo mismo ocurre con las reglas $L\necesidad$ y $R\posibilidad$. 
+
+  De las reglas modales restantes solo consideramos $R\necesidad$. Si la sustitución es vacía terminamos, si no, tenemos dos casos el primero de los cuales tiene otros dos subcasos. El primer caso es que $w$ aparezca en la regla, asumimos que w no es la variable fresca pues de serlo seria inmediato.
+
+  El primer subcaso es si $o$ no es la variable fresca, en cuyo caso repetimos el proceso de las reglas proposicionales. El segundo subcaso donde $o$ es la variable fresca que requiere la regla, entonces podemos conseguir primero una nueva variable fresca $r$ distinta a $o$ y que no aparece en el resto de secuentes, por lo que es simple remplazar $o$ por $r$ en esta regla sin alterar los secuentes, con lo que podemos proceder como antes. 
+
+  El segundo caso es si $w$ no aparece como etiqueta de la formula principal de la regla, por lo que se puede seguir aplicando el mismo proceso que en los anteriores casos.
+
+  Falta pues, probar que las reglas de reflexividad y transitividad tambien admiten la sustitución. 
+
+  El caso de la reflexividad se hace por casos si $w$ aparece como formula principal o no y es analogo.
+
+
+  La transitividad requiere de considerar casos como en la regla de $R\necesidad$.
+\end{proof}
