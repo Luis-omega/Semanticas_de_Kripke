@@ -114,3 +114,33 @@ Así pues, nos hace falta probar la admisibilidad de la regla de necesidad para 
 
   La transitividad requiere de considerar casos como en la regla de $R\necesidad$.
 \end{proof}
+
+Debido a que tenemos reglas izquierda, derecha y un caso inicial adicional, la regla de weakening viene como cuatro reglas separadas.
+
+\begin{teo}
+  some
+  some
+  \begin{align*}
+    \tree{LW}{\Gamma \derives \Delta}{w:A, \Gamma \derives \Delta} \qquad & \tree{RW}{\Gamma \derives \Delta}{\Gamma \derives \Delta, w:A} \\ 
+    \tree{$LW_R$}{\Gamma \derives \Delta}{wRo, \Gamma \derives \Delta} \qquad & \tree{$RW_R$}{\Gamma \derives \Delta}{\Gamma \derives \Delta, wRo} 
+  \end{align*}
+\end{teo}
+
+\begin{proof}
+  Las cuatro pruebas son similares, por lo que solo haremos la primera prueba.
+  La prueba es por inducción sobre la altura de la derivación.
+  Para cualquiera de lo secuentes iniciales la conclusión se sigue de las reglas iniciales. Para la regla de falso también basta usar la regla de falso. 
+  Para una derivación de altura $n>0$, solo hacemos el caso para $L \land$
+
+  \tree{L\land}{\prfsummary{s:C, s:B, \Gamma \implies \Delta}}{s:C\land B, \Gamma \implies \Delta}
+
+  Por hipótesis de inducción tenemos una prueba de altura $n-1$ para
+
+  \prfsummary{w:A, s:C, s:B, \Gamma \implies \Delta}
+
+  por lo que aplicando $L \land$ obtenemos la conclusión.
+
+  El caso de las reglas modales se hace utilizando el teorema de sustitución si es necesario, para remplazar las variables que puedan coincidir y aplicando la hipótesis de inducción como el caso anterior.
+
+  Las reglas de reflexividad y transitividad tampoco ofrecen mayor problema.
+\end{proof}
