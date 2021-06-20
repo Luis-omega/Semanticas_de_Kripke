@@ -1,0 +1,71 @@
+\section{Admisibilidad}
+
+Vamos a preparar el terreno para probar que el sistema axiomático para S4 se corresponde con las reglas para el calculo de secuentes que tenemos.
+
+\begin{teo}
+  Para toda formula modal A, en S4 se cumple que  
+  \begin{equation*}
+    w:A, \Gamma \derives \Delta,w:a 
+  \end{equation*}
+  es derivable.
+\end{teo}
+
+\begin{proof}
+  La prueba es por inducción sobre las formas de construir una formula moda. El caso de una formula atómica es directamente un secuente inicial.
+  Para los conectivos regulares solo es necesario aplicar las reglas proposicionales, basta aplicar primero la regla derecha correspondiente y después la regla izquierda.
+  Para los operadores modales hacemos solo la derivación para la necesidad
+
+
+  \tree{R\necesidad}{
+    \tree{L\necesidad}{
+      o:A, w:\necesidad A, wRo, \Gamma \derives \Delta, o:A
+    }
+    {
+    w:\necesidad A , wRo, \Gamma \derives \Delta, o:A
+    }
+  }
+  {
+    w:\necesidad A, \Gamma \derives \Delta, w:\necesidad A
+  }
+
+\end{proof}
+
+
+\begin{teo}
+  Para toda formulas modales A,B en S4 se cumple que  
+  \begin{equation*}
+    \derives \necesidad(A \implies B) \implies (\necesidad A \implies \necesidad B) 
+  \end{equation*}
+  es derivable.
+\end{teo}
+
+
+
+\begin{proof}
+
+  Por el teorema anterior es valido el secuente inicial de la derivación :
+
+  \tree{R\implies}{
+    \tree{R \necesidad}{
+      \tree{L \necesidad}{
+        \tree{L \necesidad}{
+          \tree{L \implies}{
+            o:A, o:B, o:A, wRo, w\necesidad A, w:\necesidad(A\implies B) \derives o: B
+          }{
+            o:A\implies B, o:A, wRo, w\necesidad A, w:\necesidad(A\implies B) \derives o: B
+          }
+        }{
+          o:A, wRo, w\necesidad A, w:\necesidad(A\implies B) \derives o: B
+        }
+      }{
+        wRo, w\necesidad A, w:\necesidad(A\implies B) \derives o: B
+      }
+    }{
+      w\necesidad A, w:\necesidad(A\implies B) \derives w: \necesidad B
+    }
+  }{
+    w:\necesidad(A\implies B) \derives w:(\necesidad A \implies \necesidad B)
+  }
+\end{proof}
+
+
