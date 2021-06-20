@@ -23,6 +23,8 @@ Adicionalmente esperamos que una valuación satisfaga:
 
 Con estas condiciones toda formula en un mundo tiene un valor asociado y utilizando las reglas de la valuación para la implicación y la constante falso, se cumple $w \nV A$ implica $w \V \neg A$.
 
+Un frame de Kripke junto con una valuación es llamado un modelo de Kripke.
+
 Diremos que una formula A en un frame de Kripke W es valida en W si, para cada evaluación, $w \V A$  para cada mundo w de W.
 
 Hasta ahora ignoramos a la relación binaria que viene con el frame, para la relación definimos el que una formula sea necesaria como:
@@ -32,3 +34,15 @@ Hasta ahora ignoramos a la relación binaria que viene con el frame, para la rel
 \end{equation*}
 
 Con lo anterior acabamos de establecer un significado para la necesidad.
+
+Si necesitamos otra razón para estudiar la lógica modal a través de los modelos de Kripke, esta seria que varios los diversos axiomas que se pueden añadir al sistema \K, son equivalentes a expresar condiciones sobre la relación de accesibilidad R.  Por ejemplo, el axioma \eqref{eqn:4axiom} es equivalente a que la relación de accesibilidad sea transitiva, probemos solo que la transitividad implica el axioma:
+
+Asuma $ w \V \necesidad A $, sean $r, o$ tales que $wRr$ y $rRo$, por hipótesis $wRo$ y $o \V A$. Luego $ r \V \necesidad A$ para todo $r$ y entonces $w \V \necesidad \necesidad A$ .
+
+
+De la misma forma se puede probar que se cumple el axioma \eqref{eqn:taxiom} si se da la reflexividad sobre R.
+
+En ambos casos es posible probar el reciproco mediante la selección de un mundo arbitrario y una valuación particular para el mundo y la formula.
+
+
+Por lo tanto los modelos de Kripke nos ofrecen un lugar donde examinar a la lógica S4.
