@@ -1,7 +1,43 @@
 
+Este trabajo es parcialmente una traducción al español del capitulo 10 del libro Proof Analysis de Negri y Von Plato. Cualquier error que se encuentre es probablemente soluble consultando dicho libro.
+
+\section{Lógica Modal}
+
 La lógica modal es una forma de llamar a diversos tipos de sistemas formales que tratan de capturar ciertas nociones. La falta de consenso sobre dichas nociones es la razón de existir de diversos sistemas formales. Por lo anterior, no intentaremos definir que es la lógica modal y nos contentaremos con usar el termino para referirnos al estudio de sistemas donde las formulas lógicas del calculo proposicional admiten dos operadores nuevos, los operadores modales $\necesidad$ y $\posibilidad$ (necesidad y posibilidad).
 
-Así pues, las formulas que tendremos en cuenta son las generadas mediante el uso regular de los conectivos $\land$, $\lor$, y los operadores unarios prefijos $\neg$, $\necesidad$ $\posibilidad$. Por ejemplo si $A$ es una formula proposicional regular, entonces $\necesidad A$ y $\posibilidad A$, también son formulas proposicionales y su lectura sera respectivamente \sarcasmo{necesariamente A} y \sarcasmo{posiblemente A}.
+Así pues, las formulas que tendremos en cuenta son las generadas mediante el uso regular de los conectivos $\land$, $\lor$, $\implies$ y los operadores unarios prefijos $\neg$, $\necesidad$, $\posibilidad$. Por ejemplo si $A$ es una formula proposicional regular, entonces $\necesidad A$ y $\posibilidad A$, también son formulas proposicionales y su lectura sera respectivamente \sarcasmo{necesariamente A} y \sarcasmo{posiblemente A}.
 
+El sistema base para trabajar con la lógica modal es denotado como \K y  corresponde al sistema de la lógica clásica con los siguientes axiomas añadidos :
+
+\begin{align}
+  \necesidad(A \implies B ) \implies (\necesidad A \implies \necesidad B) \label{eqn:axioma1} \\
+  Regla \, de \, necesidad: \, De \, A \, se\, sigue\,\, \necesidad A. \label{eqn:axioma2}
+\end{align}
+
+Junto con la regla de modus ponens. La regla de necesidad requiere que $A$ sea un teorema dentro del sistema axiomático.
+
+Por supuesto el sistema que nos interesa para S4 es uno de deducción natural, por lo que debemos abordar el tema de la traducción de los axiomas de \K a reglas de deducción natural. En este caso obtenemos:
+
+\begin{align}
+  \tree{}{\necesidad(A \implies B ) }{ \necesidad A }{ \necesidad B} \label{eqn:regla1} \\
+  \tree{\necesidad I}{A}{\necesidad A } \label{eqn:regla2} \tag{5}
+\end{align}
+
+Tal como su nombre lo sugiere, los operadores $\necesidad$ y $\posibilidad$ tratan de modelar un mundo donde algunas cosas son siempre ciertas y algunas solo son ciertas en algún contexto. Por esta razón, la regla de necesidad requiere de restricciones, en este caso, se trata de darle algún contexto a $A$ para evitar el poder formar el esquema $A \implies \necesidad A$ (que todo lo que es cierto en algún contexto es cierto siempre). Una discusión sobre cuando se puede aplicar la regla de necesidad nos llevaría a una comparación entre el cuantificador universal y el operador de necesidad. Y en realidad, utilizaremos el cuantificador universal en nuestra meta-teoría para definir el sentido del operador de necesidad.
+
+Antes de continuar, requerimos notar que al usar la lógica proposicional clásica, $\necesidad$ y $\posibilidad$ pueden definirse mutuamente mediante el uso de la negación y por ello omitiremos a $\posibilidad$. El efecto al considerar como base la lógica proposicional intuicionista es que estaremos trabajando únicamente con el fragmento de la necesidad.
+
+La posibilidad de definir un operador en términos del otro dejara de ser sorprendente al saber que usaremos el cuantificador existencial de la meta-lógica para definir a la $\posibilidad$.
+
+
+Múltiples axiomas pueden ser añadidos a \K y tener consecuencias interesantes, pero los que nos interesan son los siguientes :
+
+
+\begin{align}
+  \necesidad A \implies A \label{eqn:taxiom} \tag{T} \\
+  \necesidad A \implies \necesidad \necesidad A \label{eqn:4axiom}\tag{4}
+\end{align}
+
+Donde el numeró cuatro es el nombre del axioma.
 
 

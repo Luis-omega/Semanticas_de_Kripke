@@ -1,0 +1,34 @@
+\section{Semántica de Kripke}
+
+Un frame de Kripke es un conjunto W cuyos elementos llamaremos mundos, junto con una relación binaria R sobre los elementos de W que llamamos relación de accesibilidad. 
+
+Una valuación val para un frame de Kripke toma un mundo w y una formula P y devuelve un valor 0 o 1. Adoptamos la notación :
+
+\begin{equation*}
+  w \V P \quad iff \quad val(w,P)=1.
+\end{equation*}
+
+Y decimos que : La formula P se cumple en el mundo w. Adicionalmente si val(w, P) = 0, podemos escribir $w \nV P$.
+
+Adicionalmente esperamos que una valuación satisfaga:
+
+\begin{align*}
+  &\text{Toda variable proposicional tiene un valor asociado por la valuación en cada mundo}. \\
+  &w \V A \land B \quad si \, w \V A \, y \, w \V B. \\
+  &w \V A \lor B \quad si \, w \V A \, o \, w \V B. \\
+  &w \V A \implies B \quad si \, de \, w \V A \, se \, sigue \, w \V B. \\
+  &w \V \falso \, para \, ningun \, w. 
+\end{align*}
+
+
+Con estas condiciones toda formula en un mundo tiene un valor asociado y utilizando las reglas de la valuación para la implicación y la constante falso, se cumple $w \nV A$ implica $w \V \neg A$.
+
+Diremos que una formula A en un frame de Kripke W es valida en W si, para cada evaluación, $w \V A$  para cada mundo w de W.
+
+Hasta ahora ignoramos a la relación binaria que viene con el frame, para la relación definimos el que una formula sea necesaria como:
+
+\begin{equation*}
+  w \V \necesidad A \text{ si y solo si para toda } o, \quad o \V A \quad \text{se sigue de } wRo.
+\end{equation*}
+
+Con lo anterior acabamos de establecer un significado para la necesidad.
