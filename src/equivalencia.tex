@@ -1,0 +1,33 @@
+Para finalizar debemos al menos probar que el resto de axiomas de S4 como sistema de Hilbert, son validos en G3K4.
+
+El primero es $\necesidad A \implies a$ que tiene una derivación simple.
+
+\tree{L\necesidad}{w:A, wRw, w:\necesidad A \derives w:A}{\tree{L\implies}{wRw, w:\necesidad A \derives w:A}{\tree{Ref}{wRw\derives w:\necesidad A \implies A}{\derives w:\necesidad A \implies A}}}
+
+
+La transitividad es solo un poco mas complicada.
+
+\tree{R\implies}{
+  \tree{R\necesidad}{
+    \tree{R\necesidad}{
+      \tree{Trans}{
+        \tree{L\necesidad}{
+          r:A, wRr, oRr, wRo, w:\necesidad A \derives r:A  
+        }{
+          wRr, oRr, wRo, w:\necesidad A \derives r:A  
+        }
+      }{
+          oRr, wRo, w:\necesidad A \derives r:A  
+      }
+    }{
+          wRo, w:\necesidad A \derives o: \necesidad A  
+    }
+  }{
+          w:\necesidad A \derives w: \necesidad \necesidad  A  
+  }
+}{
+           \derives w: w:\necesidad A \implies \necesidad \necesidad  A  
+}
+
+
+Así que G3K4 es capaz de derivar las mismas cosas que el sistema axiomático para S4.
