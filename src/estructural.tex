@@ -144,3 +144,13 @@ Debido a que tenemos reglas izquierda, derecha y un caso inicial adicional, la r
 
   Las reglas de reflexividad y transitividad tampoco ofrecen mayor problema.
 \end{proof}
+
+Con esto ya podemos probar que en S4 es al menos tan poderosa como \K
+
+\begin{teo}
+  La regla de necesidad es admisible en S4
+\end{teo}
+
+\begin{proof}
+  Dada una derivación de $\derives w:A$. Por el teorema sobre sustitución existe una prueba de $\derives o:A$ y como el weakening es admisible, $wRo \derives o:A$. Por $R\necesidad$ tenemos entonces $\derives w:\necesidad A$ 
+\end{proof}
